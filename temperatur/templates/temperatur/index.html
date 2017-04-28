@@ -1,0 +1,72 @@
+{% load static %}
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="{% static "js/highcharts.js" %}"></script>
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'temperatur/style.css' %}"/>
+<link rel="shortcut icon" type="text/css" href="{% static 'favicon.ico' %}"/>
+<link rel="icon" type="image/gif" href="{% static 'animated_favicon1.gif' %}"/>
+<head></head>
+<body>
+<h1>Arduino Morse 1</h1>
+<form action="{% url 'index'  %}" method="get">
+    {% csrf_token %}
+    <input type="submit" name="myOffbtn" value="Switch Off"/>
+
+</form>
+{% if measurement_list %}
+<table>
+
+    <tr>
+        <th>Aussen Temp.</th>
+        <th>Aussen Hum.</th>
+        <th>Anzucht Temp.</th>
+        <th>Anzucht Hum.</th>
+        <th>Wachstum Temp.</th>
+        <th>Wachstum Hum.</th>
+        <th>Abluft Temp.</th>
+        <th>Abluft Hum.</th>
+    </tr>
+    {% for measurement in measurement_list %}
+    <tr>
+
+        <td><a href="/temperatur/{{ measurement }}/">{{ measurement.temp1 }}</a></td>
+        <td><a href="/temperatur/{{ measurement }}/">{{ measurement.hum1 }}</a></td>
+        <td><a href="/temperatur/{{ measurement }}/">{{ measurement.temp2 }}</a></td>
+        <td><a href="/temperatur/{{ measurement }}/">{{ measurement.hum2 }}</a></td>
+        <td><a href="/temperatur/{{ measurement }}/">{{ measurement.temp3 }}</a></td>
+        <td><a href="/temperatur/{{ measurement }}/">{{ measurement.hum3 }}</a></td>
+        <td><a href="/temperatur/{{ measurement }}/">{{ measurement.temp4 }}</a></td>
+        <td><a href="/temperatur/{{ measurement }}/">{{ measurement.hum4 }}</a></td>
+
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>Keine Messungen verfügbar</p>
+{% endif %}
+{% if statusArduinon %}
+<ul>
+    <li><a href="/temperatur/">{{ statusArduinon }}</a></li>
+</ul>
+{% endif %}
+
+
+<div id="container2" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+</body>
+<style>
+.chart {
+    min-width: 320px;
+    max-width: 800px;
+    height: 220px;
+    margin: 0 auto;
+}
+
+
+
+
+</style>
+
+<script src="{% static "js/chart2.js" %}"></script>
+
+
