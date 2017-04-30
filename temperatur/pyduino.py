@@ -1,18 +1,28 @@
 import serial
+import sys
+from serial import SerialException
 
 
 class Arduino():
     """
     Models an Arduino connection
     """
+    status = "disconnected"
 
-    def __init__(self, serial_port='COM5', baud_rate=9600,
+    def __init__(self, serial_port="COM5", baud_rate=9600,
                  read_timeout=5):
+        serial_port = "COM5" if sys.platform == "win32" else "/dev/ttyACM0"
+        print (serial_port)
         """
         Initializes the serial connection to the Arduino board
         """
-        self.conn = serial.Serial(serial_port, baud_rate)
-        self.conn.timeout = read_timeout  # Timeout for readline()
+        try:
+            self.conn = serial.Serial(serial_port, baud_rate)
+            self.conn.timeout = read_timeout  # Timeout for readline()
+            status = "connected"
+        except SerialException:
+            status = "disconnected"
+
 
     def set_pin_mode(self, pin_number, mode):
         """

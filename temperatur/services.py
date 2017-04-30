@@ -3,6 +3,7 @@ from temperatur.models import Measurement
 import datetime
 
 a = Arduino()
+print(a.status)
 
 
 def persist_measurement_values():
