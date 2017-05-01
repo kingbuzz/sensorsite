@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cbfe26f9-c140-400a-a57c-b5de700f2545" name="Default" comment="Serieller Port Betriebssystemabhängig implementiert&#10;Status in Arduino Klasse hinzugefügt, der angibt, ob die Connection geöffnet werden konnte. Wurde keien connection erzeugt, wird eine Exception geworfen und der Status auf Disabled gesetzt">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+    <list default="true" id="cbfe26f9-c140-400a-a57c-b5de700f2545" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -622,7 +621,14 @@
       <option name="project" value="LOCAL" />
       <updated>1493579110266</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Serieller Port Betriebssystemabhängig implementiert&#10;Status in Arduino Klasse hinzugefügt, der angibt, ob die Connection geöffnet werden konnte. Wurde keien connection erzeugt, wird eine Exception geworfen und der Status auf Disabled gesetzt">
+      <created>1493659136176</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1493659136176</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView">
